@@ -14,7 +14,9 @@
             width: 950px;
             height: 844px;
         }
-        <style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa de Calor</title>
     <style>
         /* Estilos CSS */
@@ -25,22 +27,19 @@
             justify-content: center;
             align-items: center;
         }
-
         .container {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
             height: 100%;
             background-color: #f3f3f3; /* Altera o fundo da página */
         }
-
         .mapa {
             width: 70%;
             height: 70%;
             background-color: white;
             position: relative;
         }
-
         .titulo-legenda {
             position: absolute;
             bottom: 10px;
@@ -50,14 +49,12 @@
             align-items: flex-end; /* Alinha os itens à direita */
             color: white; /* Cor do texto da legenda */
         }
-
         .titulo {
             background-color: black; /* Altera o fundo do título */
             padding: 10px; /* Adiciona um espaçamento interno ao título */
             border: 1px solid #ccc; /* Adiciona uma borda ao título */
             margin-bottom: 10px; /* Espaçamento entre o título e a legenda */
         }
-
         .titulo h1 {
             font-size: 16px; /* Tamanho da fonte do título */
             margin: 0; /* Remove as margens padrão do título */
@@ -67,7 +64,6 @@
             font-size: 14px; /* Tamanho da fonte da legenda */
             margin: 0; /* Remove as margens padrão da legenda */
         }
-
         .legenda {
             background-color: white; /* Altera o fundo da legenda */
             padding: 10px;
@@ -75,7 +71,6 @@
             font-size: 14px;
             color: black; /* Cor do texto da legenda */
         }
-
         .legenda-cor {
             background-color: white; /* Fundo branco */
             border: 1px solid black; /* Borda preta com largura de 1px */
