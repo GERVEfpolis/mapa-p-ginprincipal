@@ -46,13 +46,14 @@ body, html {
     height: 70px;
 }
         .titulo-legenda {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza os itens */
-}
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Alinha os itens à direita */
+            color: white; /* Cor do texto da legenda */
+        }
         .titulo {
     margin-bottom: 10px;
     background-color: white; /* Altera o fundo do título */
@@ -73,7 +74,7 @@ body, html {
 }
         .legenda {
     background-color: black; /* Altera o fundo da legenda */
-    padding: 20px;
+    padding: 10px;
     border: 1px solid #ccc;
     font-size: 14px;
 }
@@ -89,8 +90,8 @@ body, html {
     <!-- Título e Legenda -->
     <div class="titulo-legenda">
         <div class="titulo">
-            <h1>Mapa de Calor do Município de Florianópolis</h1>
-            <h2> Dados fornecidos pela Vigilênacia Epidemiológica</h2>
+            <h1>Mapa de Calor de Dengue do Município de Florianópolis</h1>
+            <h2>Dados fornecidos pela Vigilâcia Epidemiológica</h2>
         </div>
         <div><span class="legenda-cor">&nbsp;&nbsp;&nbsp;</span>Limites municipais</div>
         </div>
