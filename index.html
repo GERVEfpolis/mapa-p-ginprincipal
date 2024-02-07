@@ -25,6 +25,12 @@
       justify-content: center;
       align-items: center;
     }
+        .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
     .mapa {
     width: 500px;
     height: 300px;
@@ -33,46 +39,64 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}  
+        .limite-municipal {
+    position: absolute;
+    top: 20%; /* Ajuste conforme necessário */
+    left: 20%; /* Ajuste conforme necessário */
+    width: 40%; /* Ajuste conforme necessário */
+    height: 40%; /* Ajuste conforme necessário */
+    border: 2px solid black; /* Borda preta */
+    background-color: white; /* Quadrado branco */
 }
-        .container {
+        .area {
+    position: absolute;
+    top: 150px;
+    left: 200px;
+    width: 70px;
+    height: 70px;
+}
+        .titulo-legenda {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
+    align-items: flex-end;
 }
-.titulo {
-    margin-bottom: 20px;
+        .titulo {
+    margin-bottom: 10px;
 }
-    .area {
-      position: absolute;
-    }
-    .area.vermelha {
-      background-color: rgba(255, 0, 0, 0.5); /* cor avermelhada com transparência */
-    }
-    /* Estilo da legenda */
-    .legenda {
-    width: 25%;
-    position: relative;
-    bottom: 0;
-    left: 0;
+        .legenda {
     background-color: white;
     padding: 10px;
     border: 1px solid #ccc;
     font-size: 14px;
 }
+        .legenda-cor {
+    background-color: rgba(255, 0, 0, 0.5);
+}
          </style>
 <body>
-  <div class="mapa">
-    <!-- Título --> /* Estilos CSS */
-      <span class="Rn3Z1b C9DxTc" style="font-family: Arial; font-variant: normal; font-weight: 700; vertical-align: baseline;"> Mapa de calor do município de Florianópolis</span>
-    </div>
-    <!-- Áreas de concentração -->
-    <div class="area" style="top: 150px; left: 200px; width: 70px; height: 70px;"></div>
-    <!-- Adicione mais áreas conforme necessário -->
-}      
-    <!-- Legenda -->
-    <div class="legenda">
-      <div><span style="background-color: rgba(255, 0, 0, 0.5);">&nbsp;&nbsp;&nbsp;</span> Limites municipais </div>
+  <div class="container">
+    <!-- Mapa -->
+    <div class="mapa">
+        <!-- Limites municipais -->
+        <div class="limite-municipal"></div>
+
+        <!-- Áreas de concentração -->
+        <div class="area" style="top: 150px; left: 200px; width: 70px; height: 70px;"></div>
+        <!-- Adicione mais áreas conforme necessário -->
+
+        <!-- Título e Legenda -->
+        <div class="titulo-legenda">
+            <div class="titulo">
+                <h1>Mapa de Calor do Município de Florianópolis</h1>
+            </div>
+            <div class="legenda">
+                <div><span class="legenda-cor">&nbsp;&nbsp;&nbsp;</span> Limites municipais </div>
+            </div>
+        </div>
     </div>
   </div>
 </body>
