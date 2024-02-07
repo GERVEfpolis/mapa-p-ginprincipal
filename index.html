@@ -18,29 +18,28 @@
     <title>Mapa de Calor</title>
     <style>
     /* Estilos CSS */
-    body, html {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-        .container {
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
+    background-color: #f3f3f3; /* Altera o fundo da página */
 }
-    .mapa {
-    width: 500px;
-    height: 300px;
+.mapa {
+    width: 70%;
+    height: 70%;
     background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}  
-        .limite-municipal {
+    position: relative;
+    border: 1px solid black; /* Adicione uma borda preta no mapa */
+}
+.limite-municipal {
     position: absolute;
     top: 20%; /* Ajuste conforme necessário */
     left: 20%; /* Ajuste conforme necessário */
@@ -49,31 +48,38 @@
     border: 2px solid black; /* Borda preta */
     background-color: white; /* Quadrado branco */
 }
-        .area {
+.area {
     position: absolute;
     top: 150px;
     left: 200px;
     width: 70px;
     height: 70px;
 }
-        .titulo-legenda {
+.titulo-legenda {
     position: absolute;
     bottom: 10px;
     right: 10px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center; /* Centraliza os itens */
 }
-        .titulo {
+.titulo {
     margin-bottom: 10px;
+    background-color: white; /* Altera o fundo do título */
+    padding: 10px; /* Adiciona um espaçamento interno ao título */
+    border: 1px solid #ccc; /* Adiciona uma borda ao título */
 }
-        .legenda {
-    background-color: white;
+.titulo h2 {
+    font-size: 16px; /* Tamanho da fonte do título */
+    margin: 0; /* Remove as margens padrão do título */
+}
+.legenda {
+    background-color: white; /* Altera o fundo da legenda */
     padding: 10px;
     border: 1px solid #ccc;
     font-size: 14px;
 }
-        .legenda-cor {
+.legenda-cor {
     background-color: rgba(255, 0, 0, 0.5);
 }
          </style>
