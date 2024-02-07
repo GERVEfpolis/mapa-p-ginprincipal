@@ -14,85 +14,89 @@
             width: 950px;
             height: 844px;
         }
-    </style>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa de Calor</title>
     <style>
-/* Estilos CSS */
-body, html {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        /* Estilos CSS */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    background-color: #f3f3f3; /* Altera o fundo da página */
-}
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            background-color: #f3f3f3; /* Altera o fundo da página */
+        }
+
         .mapa {
-    width: 70%;
-    height: 70%;
-    background-color: white;
-    position: relative;
-}
-        .area {
-    position: absolute;
-    top: 150px;
-    left: 200px;
-    width: 70px;
-    height: 70px;
-}
+            width: 70%;
+            height: 70%;
+            background-color: white;
+            position: relative;
+        }
+
         .titulo-legenda {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza os itens */
-}
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Alinha os itens à direita */
+            color: white; /* Cor do texto da legenda */
+        }
+
         .titulo {
-    margin-bottom: 10px;
-    background-color: white; /* Altera o fundo do título */
-    padding: 10px; /* Adiciona um espaçamento interno ao título */
-    border: 1px solid #ccc; /* Adiciona uma borda ao título */
-    position: absolute;
-    top: 50%; /* Posiciona o topo do título no meio vertical do contêiner pai */
-    right: 10px; /* Define uma distância de 10px da borda direita do contêiner pai */
-    transform: translateY(-50%); /* Move o título para cima metade da sua própria altura, para que fique centralizado verticalmente */
-}
+            background-color: black; /* Altera o fundo do título */
+            padding: 10px; /* Adiciona um espaçamento interno ao título */
+            border: 1px solid #ccc; /* Adiciona uma borda ao título */
+            margin-bottom: 10px; /* Espaçamento entre o título e a legenda */
+        }
+
         .titulo h1 {
-    font-size: 14px; /* Tamanho da fonte do título */
-    margin: 0; /* Remove as margens padrão do título */
-}
-        titulo h2 {
-    font-size: 12px; /* Tamanho da fonte do título */
-    margin: 0; /* Remove as margens padrão do título */
-}
+            font-size: 16px; /* Tamanho da fonte do título */
+            margin: 0; /* Remove as margens padrão do título */
+        }
+
+        .titulo h2 {
+            font-size: 14px; /* Tamanho da fonte da legenda */
+            margin: 0; /* Remove as margens padrão da legenda */
+        }
+
         .legenda {
-    background-color: black; /* Altera o fundo da legenda */
-    padding: 10px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-}
+            background-color: white; /* Altera o fundo da legenda */
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            color: black; /* Cor do texto da legenda */
+        }
+
         .legenda-cor {
-    background-color: white; /* Fundo branco */
-    border: 1px solid black; /* Borda preta com largura de 1px */
-}
-         </style>
+            background-color: white; /* Fundo branco */
+            border: 1px solid black; /* Borda preta com largura de 1px */
+        }
+    </style>
+</head>
 <body>
 <div class="container">
     <!-- Mapa -->
     <div class="mapa">
-    <!-- Título e Legenda -->
-    <div class="titulo-legenda">
-        <div class="titulo">
-            <h1>Mapa de Calor do Município de Florianópolis</h1>
-            <h2> Dados fornecidos pela Vigilênacia Epidemiológica</h2>
-        </div>
-        <div><span class="legenda-cor">&nbsp;&nbsp;&nbsp;</span>Limites municipais</div>
+        <!-- Título e Legenda -->
+        <div class="titulo-legenda">
+            <div class="titulo">
+                <h1>Mapa de Calor do Município de Florianópolis</h1>
+                <h2>Dados fornecidos pela Vigilância Epidemiológica</h2>
+            </div>
+            <div><span class="legenda-cor">&nbsp;&nbsp;&nbsp;</span>Limites municipais</div>
         </div>
     </div>
 </div>
