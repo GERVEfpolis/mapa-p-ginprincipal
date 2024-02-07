@@ -37,7 +37,6 @@ body, html {
     height: 70%;
     background-color: white;
     position: relative;
-    border: 1px solid black; /* Adicione uma borda preta no mapa */
 }
         .limite-municipal {
     position: absolute;
@@ -73,13 +72,16 @@ body, html {
     right: 10px; /* Define uma distância de 10px da borda direita do contêiner pai */
     transform: translateY(-50%); /* Move o título para cima metade da sua própria altura, para que fique centralizado verticalmente */
 }
-
-        .titulo h2 {
+        .titulo h1 {
     font-size: 14px; /* Tamanho da fonte do título */
     margin: 0; /* Remove as margens padrão do título */
 }
+        titulo h2 {
+    font-size: 12px; /* Tamanho da fonte do título */
+    margin: 0; /* Remove as margens padrão do título */
+}
         .legenda {
-    background-color: white; /* Altera o fundo da legenda */
+    background-color: black; /* Altera o fundo da legenda */
     padding: 10px;
     border: 1px solid #ccc;
     font-size: 14px;
@@ -94,6 +96,8 @@ body, html {
     <div class="mapa">
         <!-- Limites municipais -->
         <div class="limite-municipal"></div>
+         <div><span class="legenda-cor">&nbsp;&nbsp;&nbsp;</span>Limites municipais</div>
+        </div>
         <!-- Áreas de concentração -->
         <div class="area" style="top: 150px; left: 200px; width: 70px; height: 70px;"></div>
         <!-- Adicione mais áreas conforme necessário -->
@@ -103,10 +107,9 @@ body, html {
         <div class="titulo">
             <h1>Mapa de Calor do Município 
                 de Florianópolis</h1>
+            <h2> Dados epidemiológicos da concentração de casos</h2>
         </div>
-        <div class="legenda">
-            <div><span class="legenda-cor">&nbsp;&nbsp;&nbsp;</span> Limites municipais </div>
-        </div>
+           
     </div>
 </div>
 </body>
