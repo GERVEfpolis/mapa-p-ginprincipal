@@ -17,7 +17,7 @@
     </style>
     <title>Mapa de Calor</title>
     <style>
-    /* Estilos CSS */
+/* Estilos CSS */
 body, html {
     height: 100%;
     margin: 0;
@@ -25,21 +25,21 @@ body, html {
     justify-content: center;
     align-items: center;
 }
-.container {
+        .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100%;
     background-color: #f3f3f3; /* Altera o fundo da página */
 }
-.mapa {
+        .mapa {
     width: 70%;
     height: 70%;
     background-color: white;
     position: relative;
     border: 1px solid black; /* Adicione uma borda preta no mapa */
 }
-.limite-municipal {
+        .limite-municipal {
     position: absolute;
     top: 20%; /* Ajuste conforme necessário */
     left: 20%; /* Ajuste conforme necessário */
@@ -48,14 +48,14 @@ body, html {
     border: 2px solid black; /* Borda preta */
     background-color: white; /* Quadrado branco */
 }
-.area {
+        .area {
     position: absolute;
     top: 150px;
     left: 200px;
     width: 70px;
     height: 70px;
 }
-.titulo-legenda {
+        .titulo-legenda {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -63,23 +63,23 @@ body, html {
     flex-direction: column;
     align-items: center; /* Centraliza os itens */
 }
-.titulo {
+        .titulo {
     margin-bottom: 10px;
     background-color: white; /* Altera o fundo do título */
     padding: 10px; /* Adiciona um espaçamento interno ao título */
     border: 1px solid #ccc; /* Adiciona uma borda ao título */
 }
-.titulo h2 {
+        .titulo h2 {
     font-size: 16px; /* Tamanho da fonte do título */
     margin: 0; /* Remove as margens padrão do título */
 }
-.legenda {
+        .legenda {
     background-color: white; /* Altera o fundo da legenda */
     padding: 10px;
     border: 1px solid #ccc;
     font-size: 14px;
 }
-.legenda-cor {
+        .legenda-cor {
     background-color: rgba(255, 0, 0, 0.5);
 }
          </style>
@@ -89,16 +89,15 @@ body, html {
     <div class="mapa">
         <!-- Limites municipais -->
         <div class="limite-municipal"></div>
-
         <!-- Áreas de concentração -->
         <div class="area" style="top: 150px; left: 200px; width: 70px; height: 70px;"></div>
         <!-- Adicione mais áreas conforme necessário -->
     </div>
-
     <!-- Título e Legenda -->
     <div class="titulo-legenda">
         <div class="titulo">
-            <h1>Mapa de Calor do Município de Florianópolis</h1>
+            <h1>Mapa de Calor do Município 
+                de Florianópolis</h1>
         </div>
         <div class="legenda">
             <div><span class="legenda-cor">&nbsp;&nbsp;&nbsp;</span> Limites municipais </div>
