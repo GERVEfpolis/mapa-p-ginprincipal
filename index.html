@@ -34,6 +34,15 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+        .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+.titulo {
+    margin-bottom: 20px;
+}
     .area {
       position: absolute;
     }
@@ -42,45 +51,6 @@
     }
     /* Estilo da legenda */
     .legenda {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background-color: white;
-      padding: 5px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-         </style>
-<body>
-  <div class="mapa">
-    <!-- Título --> /* Estilos CSS */
-body, html {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-}
-
-.titulo {
-    margin-bottom: 20px;
-}
-
-.mapa {
-    width: 70%;
-    height: 70%;
-    background-color: white;
-    position: relative;
-}
-
-.legenda {
     width: 25%;
     position: relative;
     bottom: 0;
@@ -90,6 +60,10 @@ body, html {
     border: 1px solid #ccc;
     font-size: 14px;
 }
+         </style>
+<body>
+  <div class="mapa">
+    <!-- Título --> /* Estilos CSS */
       <span class="Rn3Z1b C9DxTc" style="font-family: Arial; font-variant: normal; font-weight: 700; vertical-align: baseline;"> Mapa de calor do município de Florianópolis</span>
     </div>
     <!-- Áreas de concentração -->
