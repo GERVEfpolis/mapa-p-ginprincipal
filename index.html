@@ -51,29 +51,50 @@
       font-size: 14px;
     }
          </style>
-</head>
-<body>
-    <div id="map"></div>
-    <div class="legend">
-        <div class="legend-title">Legenda - Mapa de Calor do Município de Florianópolis da Semana Epidemiológica 6/6</div>
-        <div class="legend-item">
-            <div class="legend-square" style="background-color: black;"></div>
-            <div class="legend-label">Foi ultizada a densidade de Karnel para construção</div>
-        </div>
-    </div>
-  </style>
-</head>
 <body>
   <div class="mapa">
-    <!-- Título -->
-    <div style="text-align: center; margin-bottom: 20px;">
-      <span class="Rn3Z1b C9DxTc" style="font-family: Arial; font-variant: normal; font-weight: 700; vertical-align: baseline;">Mapa de calor do município de Florianópolis</span>
+    <!-- Título --> /* Estilos CSS */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.titulo {
+    margin-bottom: 20px;
+}
+
+.mapa {
+    width: 70%;
+    height: 70%;
+    background-color: white;
+    position: relative;
+}
+
+.legenda {
+    width: 25%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+      <span class="Rn3Z1b C9DxTc" style="font-family: Arial; font-variant: normal; font-weight: 700; vertical-align: baseline;"> Mapa de calor do município de Florianópolis</span>
     </div>
     <!-- Áreas de concentração -->
     <div class="area" style="top: 150px; left: 200px; width: 70px; height: 70px;"></div>
     <!-- Adicione mais áreas conforme necessário -->
-      ::-webkit-scrollbar-thumb {
-    border: 1px solid rgba(255,255,255,.4);
 }      
     <!-- Legenda -->
     <div class="legenda">
