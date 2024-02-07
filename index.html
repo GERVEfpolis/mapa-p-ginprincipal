@@ -1,35 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <link rel="stylesheet" href="css/leaflet.css">
-        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
-        <style>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/qgis2web.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <style>
         #map {
             width: 950px;
             height: 844px;
         }
-        </style>
-        <title></title>
-    </head>
-    <body>
-        <div id="map">
-        </div>
-        <script src="js/qgis2web_expressions.js"></script>
-        <script src="js/leaflet.js"></script>
-        <script src="js/leaflet.rotatedMarker.js"></script>
-        <script src="js/leaflet.pattern.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/Autolinker.min.js"></script>
-        <script src="js/rbush.min.js"></script>
-        <script src="js/labelgun.min.js"></script>
-        <script src="js/labels.js"></script>
-        <script src="data/Florianpolis_0.js"></script>
-        <script>
+    </style>
+    <title>Mapa de Calor</title>
+    <style>
+    /* Estilos CSS */
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mapa {
+      width: 500px; /* ajuste conforme necessário */
+      height: 300px; /* ajuste conforme necessário */
+      background-color: lightgray; /* cor de fundo do mapa */
+      position: relative;
+    }
+
+    .area {
+      position: absolute;
+    }
+
+    .area.vermelha {
+      background-color: rgba(255, 0, 0, 0.5); /* cor avermelhada com transparência */
+    }
+
+    /* Estilo da legenda */
+    .legenda {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: white;
+      padding: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="mapa">
+    <!-- Título -->
+    <div style="text-align: center; margin-bottom: 20px;">
+      <span class="Rn3Z1b C9DxTc" style="font-family: Arial; font-variant: normal; font-weight: 700; vertical-align: baseline;">Mapa de calor município de Florianópolis</span>
+    </div>
+
+    <!-- Áreas de concentração -->
+    <div class="area vermelha" style="top: 50px; left: 100px; width: 50px; height: 50px;"></div>
+    <div class="area" style="top: 150px; left: 200px; width: 70px; height: 70px;"></div>
+    <!-- Adicione mais áreas conforme necessário -->
+
+    <!-- Legenda -->
+    <div class="legenda">
+      <div><span style="background-color: rgba(255, 0, 0, 0.5);">&nbsp;&nbsp;&nbsp;</span> Dados </div>
+    </div>
+  </div>
+</body>
+</html>
+</head>
+<body>
+    <div id="map"></div>
+    <script src="js/qgis2web_expressions.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet.rotatedMarker.js"></script>
+    <script src="js/leaflet.pattern.js"></script>
+    <script src="js/leaflet-hash.js"></script>
+    <script src="js/Autolinker.min.js"></script>
+    <script src="js/rbush.min.js"></script>
+    <script src="js/labelgun.min.js"></script>
+    <script src="js/labels.js"></script>
+    <script src="data/Florianpolis_0.js"></script>
+    <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
         }).fitBounds([[-27.821368215345608,-48.735271315858945],[-27.331656733805648,-48.119494184850076]]);
@@ -37,33 +93,32 @@
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         function removeEmptyRowsFromPopupContent(content, feature) {
-         var tempDiv = document.createElement('div');
-         tempDiv.innerHTML = content;
-         var rows = tempDiv.querySelectorAll('tr');
-         for (var i = 0; i < rows.length; i++) {
-             var td = rows[i].querySelector('td.visible-with-data');
-             var key = td ? td.id : '';
-             if (td && td.classList.contains('visible-with-data') && feature.properties[key] == null) {
-                 rows[i].parentNode.removeChild(rows[i]);
-             }
-         }
-         return tempDiv.innerHTML;
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+            var rows = tempDiv.querySelectorAll('tr');
+            for (var i = 0; i < rows.length; i++) {
+                var td = rows[i].querySelector('td.visible-with-data');
+                var key = td ? td.id : '';
+                if (td && td.classList.contains('visible-with-data') && feature.properties[key] == null) {
+                    rows[i].parentNode.removeChild(rows[i]);
+                }
+            }
+            return tempDiv.innerHTML;
         }
         var bounds_group = new L.featureGroup([]);
-        function setBounds() {
-        }
+        function setBounds() {}
         function pop_Florianpolis_0(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['label'] !== null ? autolinker.link(feature.properties['label'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['label_m'] !== null ? autolinker.link(feature.properties['label_m'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
+                <tr>\
+                    <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                </tr>\
+                <tr>\
+                    <td colspan="2">' + (feature.properties['label'] !== null ? autolinker.link(feature.properties['label'].toLocaleString()) : '') + '</td>\
+                </tr>\
+                <tr>\
+                    <td colspan="2">' + (feature.properties['label_m'] !== null ? autolinker.link(feature.properties['label_m'].toLocaleString()) : '') + '</td>\
+                </tr>\
+            </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
             var popup = layer.getPopup();
             var content = popup.getContent();
@@ -109,8 +164,7 @@
             minNativeZoom: 0,
             maxNativeZoom: 18
         });
-        layer_OpenStreetMap_1;
-        map.addLayer(layer_OpenStreetMap_1);
+        layer_OpenStreetMap_1.addTo(map);
         map.createPane('pane_Confirmadosdenguede7jan24a3fev24_2');
         map.getPane('pane_Confirmadosdenguede7jan24a3fev24_2').style.zIndex = 402;
         var img_Confirmadosdenguede7jan24a3fev24_2 = 'data/Confirmadosdenguede7jan24a3fev24_2.png';
@@ -126,6 +180,6 @@
                 return this._bounds;
             }
         });
-        </script>
-    </body>
+    </script>
+</body>
 </html>
