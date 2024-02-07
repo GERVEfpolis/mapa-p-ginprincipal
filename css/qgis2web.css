@@ -1,3 +1,60 @@
+<div id="map"></div>
+<h2>Mapa de Calor</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Calor</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* Adicione seus estilos personalizados aqui */
+
+        #map {
+            height: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .legenda {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 14px;
+        }
+
+        /* Outros estilos personalizados */
+    </style>
+</head>
+<body>
+    <h2>Mapa de Calor</h2>
+    <div id="map"></div>
+    <div class="legenda">
+        <p>Legenda:</p>
+        <p>Adicione aqui sua legenda personalizada.</p>
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Seu script JavaScript para criar e interagir com o mapa Leaflet
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Adicione suas camadas, marcadores, etc., conforme necessário
+    </script>
+</body>
+</html>
+
 #map {
     background-color: #ffffff;
 }
