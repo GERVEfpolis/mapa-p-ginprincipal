@@ -51,11 +51,17 @@ body, html {
         .titulo h1 {
     font-size: 14px; /* Tamanho da fonte do título */
     margin: 0; /* Remove as margens padrão do título */
+    text-align: justify; /* Justifica o texto do título */
 }
         .titulo h2 {
     font-size: 10px; /* Tamanho da fonte do título */
     margin: 0; /* Remove as margens padrão do título */
+    line-height: 1.2; /* Define o espaçamento entre linhas da legenda */
 }
+        p {
+            font-size: 12px; /* Tamanho da fonte do parágrafo */
+            margin-bottom: 8px; /* Espaçamento abaixo de cada parágrafo */
+        }
         .legenda-cor {
     background-color: white; /* Fundo branco */
     border: 1px solid black; /* Borda preta com largura de 1px */
@@ -67,13 +73,14 @@ body, html {
     <!-- Título e Legenda -->
     <div class="titulo-legenda">
         <div class="titulo">
-            <h1>Casos confirmados de dengue do dia 07/01/24 a 03/02/24 em Florianópolis</h1>
+            <h1> Casos confirmados de dengue do dia 07/01/24 a 03/02/24 em Florianópolis </h1>
         </div>
         <img src="img.png">
-        <div class="legenda-cor">
+        <h2>
         <p> Fonte: SINAN </p>
         <p> Para um melhor desempenho abra a página no Firefox </p>
         <p> Mapa do OpenStreetMap </p>
+        </h2>
     </div>
       </div>
 <body>
