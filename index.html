@@ -50,7 +50,20 @@ body, html {
     right: 10px; /* Define uma distância de 10px da borda direita do contêiner pai */
     transform: translateY(-50%); /* Move o título para cima metade da sua própria altura, para que fique centralizado verticalmente */
     font-weight: normal; /* Remove o negrito do texto do título */
-}
+} 
+        .tab1 {
+        background-color: rgba(0, 47, 101, 1);
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        position: absolute;
+        left: 10px; /* Posiciona o botão à esquerda */
+        top: 85%; /* Posiciona o botão 85% do caminho para baixo */
+        transform: translateY(-50%); /* Centraliza verticalmente o botão */
+        margin-bottom: 10px
+    }
         .titulo h1 {
     font-size: 18px; /* Tamanho da fonte do título */
     margin: 0; /* Remove as margens padrão do título */
@@ -73,19 +86,7 @@ body, html {
     border: 1px solid black; /* Borda preta com largura de 1px */
     line-height: 1.2; /* Define o espaçamento entre linhas da legenda */
 }
-        .tab1 {
-        background-color: rgba(0, 47, 101, 1);
-        color: white;
-        border: none;
-        padding: 10px;
-        font-size: 16px;
-        cursor: pointer;
-        position: absolute;
-        left: 10px; /* Posiciona o botão à esquerda */
-        top: 85%; /* Posiciona o botão 85% do caminho para baixo */
-        transform: translateY(-50%); /* Centraliza verticalmente o botão */
-        margin-bottom: 10px
-    }
+        
 </style>
 <body>
     <div class="mapa">
@@ -100,23 +101,10 @@ body, html {
         <p> Para um melhor desempenho, abra a página no Firefox </p>
         <p> Mapa do OpenStreetMap </p>
         </h2>
+        <button class="tab1">Histórico</button>
     </div>
       </div>
-        <button class="tab1">Histórico</button>
-</body>
-    <div class="mapa">
-    <!-- Título e Legenda -->
-    <div class="titulo-legenda">
-        <div class="titulo">
-            <h1> Casos confirmados de dengue do dia 07/01/24 a 03/02/24 em Florianópolis </h1>
-        </div>
-        <img src="img.png">
-        <h2>
-        <p> Fonte: SINAN </p>
-        <p> Para um melhor desempenho, abra a página no Firefox </p>
-        <p> Mapa do OpenStreetMap </p>
-        </h2>
-      </div>
+       
 <body>
     <div id="map"></div>
     <script src="js/qgis2web_expressions.js"></script>
