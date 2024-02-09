@@ -73,7 +73,11 @@ body, html {
     line-height: 1.2; /* Define o espaçamento entre linhas da legenda */
 }
         .tab1 {
-    display: block;
+    display: block; /* Exibir como bloco */
+    position: absolute;
+    bottom: -60px; /* Ajuste o valor para mover o botão mais para baixo */
+    left: 50%; /* Posiciona o botão no centro horizontal */
+    transform: translateX(-50%); /* Move o botão para a esquerda metade da sua largura */
     background-color: rgba(0, 47, 101, 1);
     color: white;
     border: none;
