@@ -73,17 +73,17 @@ body, html {
     line-height: 1.2; /* Define o espaçamento entre linhas da legenda */
 }
         .tab1 {
-            position: absolute;
-            top: 80%; 
-            right: 10px; /* Define uma distância de 10px da borda direita do contêiner pai */
-            background-color: rgba(0,47,101,1); /* Cor de fundo do botão */
-            color: white; /* Cor do texto do botão */
-            border: none; /* Remove a borda */
-            padding: 10px 20px; /* Adiciona espaçamento interno */
-            font-size: 16px; /* Tamanho da fonte */
-            cursor: pointer; /* Muda o cursor para indicar que o botão é clicável */
-            margin-right: 10px; /* Adiciona margem à direita */
-        }
+    position: absolute;
+    bottom: 0; /* Coloca o botão na parte inferior do contêiner pai */
+    left: 50%; /* Posiciona no meio horizontal */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    background-color: rgba(0, 47, 101, 1);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
 </style>
 <body>
     <div class="mapa">
