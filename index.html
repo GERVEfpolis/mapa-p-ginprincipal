@@ -38,7 +38,25 @@ body, html {
     margin-left: auto; /* Alinha o mapa à direita */
     margin-right: auto; /* Alinha o mapa à esquerda */
 }
-
+ .tab-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* largura desejada */
+}
+.tab-button {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+.tab-content.active {
+    display: block;
+}
 .area {
     position: relative;
     top: 150px;
