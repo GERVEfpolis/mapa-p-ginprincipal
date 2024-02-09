@@ -44,7 +44,7 @@ body, html {
     background-color: white; /* Altera o fundo do título */
     padding: 10px; /* Adiciona um espaçamento interno ao título */
     border: 1px solid #ccc; /* Adiciona uma borda ao título */
-    position: relative;
+    position: absolute;
     top: 50%; /* Posiciona o topo do título no meio vertical do contêiner pai */
     right: 10px; /* Define uma distância de 10px da borda direita do contêiner pai */
     transform: translateY(-50%); /* Move o título para cima metade da sua própria altura, para que fique centralizado verticalmente */
@@ -75,7 +75,8 @@ body, html {
         .tab1 {
     position: absolute;
     bottom: 0;
-    right: 0; /* Posiciona o botão no lado direito */
+    top: 80%; 
+    right: 10%; /* Posiciona o botão no lado direito */
     background-color: rgba(0, 47, 101, 1);
     color: white;
     border: none;
