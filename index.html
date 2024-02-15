@@ -9,13 +9,84 @@
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
-        #map {
-            width: 950px;
-            height: 844px;
+         #map {
+            width: 1000px;
+            height: 833px;
         }
-        </style>
-        <title></title>
-    </head>
+</style>
+    <title>Mapa de Calor</title>
+    <style>
+/* Estilos CSS */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+        .mapa {
+    background-color: white;
+    position: relative;
+    margin-top: 20px;
+    margin-left: auto; /* Alinha o mapa à direita */
+    margin-right: auto; /* Alinha o mapa à esquerda */
+}
+.area {
+    position: relative;
+    top: 150px;
+    left: 300px; /* Move a área para a direita */
+    width: 60px;
+    height: 60px;
+}
+        .titulo-legenda {
+    margin-bottom: 10px;
+    background-color: white; /* Altera o fundo do título */
+    padding: 10px; /* Adiciona um espaçamento interno ao título */
+    border: 1px solid #ccc; /* Adiciona uma borda ao título */
+    position: absolute;
+    top: 50%; /* Posiciona o topo do título no meio vertical do contêiner pai */
+    right: 10px; /* Define uma distância de 10px da borda direita do contêiner pai */
+    transform: translateY(-50%); /* Move o título para cima metade da sua própria altura, para que fique centralizado verticalmente */
+    font-weight: normal; /* Remove o negrito do texto do título */
+}
+        .titulo h1 {
+    font-size: 18px; /* Tamanho da fonte do título */
+    margin: 0; /* Remove as margens padrão do título */
+    text-align: center; /* Justifica o texto do título */
+}
+        .titulo h2 {
+    font-size: 14px; /* Tamanho da fonte do título */
+    margin: 0; /* Remove as margens padrão do título */
+    line-height: 1.2; /* Define o espaçamento entre linhas da legenda */
+    font-weight: normal; /* Remove o negrito do texto do título */
+}
+        p {
+            font-size: 14px; /* Tamanho da fonte do parágrafo */
+            margin-bottom: 8px; /* Espaçamento abaixo de cada parágrafo */
+            text-align: justify; /* Centraliza o texto do título */
+            font-weight: normal; /* Remove o negrito do texto do título */
+        }
+        .legenda-cor {
+    background-color: white; /* Fundo branco */
+    border: 1px solid black; /* Borda preta com largura de 1px */
+    line-height: 1.2; /* Define o espaçamento entre linhas da legenda */
+}
+</style>
+<body>
+    <div class="mapa">
+    <!-- Título e Legenda -->
+    <div class="titulo-legenda">
+        <div class="titulo">
+            <h1> Casos confirmados de dengue do dia 14/01/24 a 10/02/24 em Florianópolis </h1>
+        </div>
+        <img src="img.png">
+        <h2>
+        <p> Fonte: SINAN </p>
+        <p> Para um melhor desempenho, abra a página no Firefox </p>
+        <p> Mapa do OpenStreetMap </p>
+        </h2>
+    </div>
+      </div>
     <body>
         <div id="map">
         </div>
