@@ -17,30 +17,33 @@
 </style>
     <title>Mapa de Calor</title>
     <style>
+/* Estilos CSS */
 body, html {
     height: 100%;
-    width: 100%;
-    margin: 0 auto;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    }
-        .bloco {
+}
+        .mapa {
     background-color: white;
-    position: absolute;
-    }
+    position: relative;
+    margin-top: 20px;
+    margin-left: auto; 
+    margin-right: auto; 
+}
         .titulo-legenda {
-    margin-bottom: auto;
+    margin-bottom: 10px;
     background-color: white; 
-    padding: 8px; 
+    padding: 10px; 
     border: 1px solid #ccc; 
     position: absolute;
     top: 50%;
-    left: 10px; 
+    right: 10px; 
     transform: translateY(-50%); 
     font-weight: normal; 
-    }
-	    .tab1 {
+}
+          .tab1 {
             background-color: rgba(0, 47, 101, 1);
             color: white;
             border: none;
@@ -55,21 +58,14 @@ body, html {
     }
         .titulo h1 {
     font-size: 18px; 
-    text-align: center; 
-    }
+    text-align: center;    
+}
         .titulo h2 {
     font-size: 14px; 
     line-height: 1.2; 
-    font-weight: normal; 
-    }
-        p {
-            font-size: 14px; /* Tamanho da fonte do parágrafo */
-            margin-bottom: 8px; /* Espaçamento abaixo de cada parágrafo */
-            text-align: justify; /* Centraliza o texto do título */
-            font-weight: normal; /* Remove o negrito do texto do título */
-        }
-
-	.titulo h3 {
+    font-weight: normal;    
+ }
+        .titulo h3 {
         background-color: rgba(0, 47, 101, 1);
         color: white;
         border: none;
@@ -83,40 +79,37 @@ body, html {
         margin-bottom: 10px;
         font-weight: normal;
     }
+            p {
+            font-size: 14px; /* Tamanho da fonte do parágrafo */
+            margin-bottom: 8px; /* Espaçamento abaixo de cada parágrafo */
+            text-align: justify; /* Centraliza o texto do título */
+            font-weight: normal; /* Remove o negrito do texto do título */
+            }
         .legenda-cor {
-	background-color: white; /* Fundo branco *
-	border: 0px solid black; /* Borda preta com largura de 1px */
-	line-height: 1.2; /* Define o espaçamento entre linhas da legenda */
-    }
- 	.busca {
-	width: 70%;
-	float: left;
-    text-align: center;
-    height: 36px;
-    }
-
+    background-color: white; 
+    border: 1px solid black; 
+    line-height: 1.2;
+        }
 </style>
+<body>
 </head>
-<header>
-    <div class="bloco">
+    <div class="mapa">
     <!-- Título e Legenda -->
     <div class="titulo-legenda">
         <div class="titulo">
-            <h1> Casos confirmados de dengue do dia 14/01/24 a 10/02/24 em Florianópolis </h1>
+            <h1> Casos confirmados de dengue do dia 21/01/24 a 17/02/24 em Florianópolis </h1>
         </div>
-        <img src="legenda.png">
+        <img src="LegendaSE4567.png">
         <h2>
         <p> Fonte: SINAN </p>
         <p> Para um melhor desempenho, abra a página no Firefox </p>
         <p> Mapa do OpenStreetMap </p>
         </h2>
-             <button class="tab1">Histórico</button>
-     <div class="titulo h3">
+         <div class="titulo h3">
     <h3><a href="https://mapajaneiro.netlify.app/#12/-27.5981/-48.5134.html" style="background-color: rgba(0, 47, 101, 1); color: white; padding: 10px; text-decoration: none;">Janeiro</a></h3>
-</div>
-  </div>
     </div>
-</header>
+    </div>
+      </div>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
