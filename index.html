@@ -201,7 +201,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{"Casos de dengue": layer_Casosdedengue_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{"Casos de dengue": layer_Casosdedengue_1,"<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>": "OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
         setBounds();
         L.ImageOverlay.include({
             getBounds: function () {
