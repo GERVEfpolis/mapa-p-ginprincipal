@@ -117,14 +117,24 @@
         .className += ' fa fa-search';
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
-        var baseMaps = {};
-        L.control.layers(baseMaps,{"Densidade de Kernel": layer_DensidadedeKernel_1,"OpenStreetMap": layer_OpenStreetMap_0,},{collapsed:false}).addTo(map);
-        setBounds();
-        L.ImageOverlay.include({
-            getBounds: function () {
-                return this._bounds;
-            }
-        });
+        var baseMaps = {
+};
+
+var overlayMaps = {
+      "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>": layer_OpenStreetMap_0,
+    "Densidade de Kernel": layer_DensidadedeKernel_1
+};
+
+L.control.layers(baseMaps, overlayMaps, {collapsed:false}).addTo(map);
+setBounds();
+
+// Adicionando a imagem abaixo de "Densidade de Kernel"
+var layerControl = document.querySelector('.leaflet-control-layers-overlays');
+var legendImg = document.createElement('img');
+legendImg.src = 'Legenda.png'; // Substitua 'Legenda.png' pelo caminho da sua imagem
+legendImg.style.marginTop = '5px'; // Adiciona um espaçamento superior para separar a imagem do texto
+layerControl.appendChild(legendImg);
+
         </script>
     </body>
 </html>
