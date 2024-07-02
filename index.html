@@ -149,10 +149,35 @@
         .className += ' fa fa-search';
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
-        var baseMaps = {};
+        var baseMaps = {
+};
+
+var overlayMaps = {
+      "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>": layer_OpenStreetMap_0,
+    "Densidade de Kernel": layer_DensidadedeKernel_1
+};
+
+L.control.layers(baseMaps, overlayMaps, {collapsed:false}).addTo(map);
+setBounds();
+
+// Adicionando a imagem abaixo de "Densidade de Kernel"
+var layerControl = document.querySelector('.leaflet-control-layers-overlays');
+var legendImg = document.createElement('img');
+legendImg.src = 'Legenda.png'; // Substitua 'Legenda.png' pelo caminho da sua imagem
+legendImg.style.marginTop = '5px'; // Adiciona um espaçamento superior para separar a imagem do texto
+layerControl.appendChild(legendImg);
+
+        </script>
+    </body>
+</html>
+
+
+
+
+var baseMaps = {};
         var overlaysTree = [
-            {label: "Densidade de Kernel", layer: layer_DensidadedeKernel_1},
-            {label: "OpenStreetMap", layer: layer_OpenStreetMap_0},]
+            {label:  "OpenStreetMap", layer: layer_OpenStreetMap_0},
+            {label: "Densidade de Kernel", layer: layer_DensidadedeKernel_1},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
@@ -169,6 +194,26 @@
                 return this._bounds;
             }
         });
+            function addLegendLink() {
+    var layerControlItems = document.querySelectorAll('.leaflet-control-layers-selector + span');
+    layerControlItems.forEach(function(item) {
+        if (item.textContent.trim() === "OpenStreetMap") {
+            var osmLink = document.createElement('a');
+            osmLink.href = 'https://www.openstreetmap.org/copyright';
+            osmLink.innerText = 'OpenStreetMap';
+            osmLink.target = '_blank';
+            item.innerHTML = '';
+            item.appendChild(osmLink);
+        }
+    });
+}
+addLegendLink();
+
+var legendImg = document.createElement('img');
+legendImg.src = 'Legenda.png'; // Substitua 'Legenda.png' pelo caminho da sua imagem
+legendImg.style.marginTop = '5px'; // Adiciona um espaçamento superior para separar a imagem do texto
+var layerControl = document.querySelector('.leaflet-control-layers-overlays');
+layerControl.appendChild(legendImg);
         </script>
     </body>
 </html>
