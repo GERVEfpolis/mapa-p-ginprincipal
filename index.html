@@ -166,10 +166,11 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        var overlaysTree = [{label: "OpenStreetMap", layer: layer_OpenStreetMap_0}
+        var overlaysTree = [
+           {label: "OpenStreetMap", layer: layer_OpenStreetMap_0}
             {label: "Agosto", layer: layer_Agosto_3},
             {label: "Julho ", layer: layer_Julho_2},
-            {label: "Abril", layer: layer_Abril_1},,]
+            {label: "Abril", layer: layer_Abril_1},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
