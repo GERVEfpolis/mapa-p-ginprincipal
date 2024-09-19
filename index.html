@@ -166,11 +166,11 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-          var overlaysTree = [
-            {label: "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>", layer: layer_OpenStreetMap_0},
+        var overlaysTree = [
             {label: "Agosto", layer: layer_Agosto_3},
             {label: "Julho", layer: layer_Julho_2},
             {label: "Abril", layer: layer_Abril_1},
+            {label: "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>", layer: layer_OpenStreetMap_0},
         ];
 
         var lay = L.control.layers.tree(null, overlaysTree, {
@@ -178,32 +178,63 @@
         });
         lay.addTo(map);
 
-        setBounds();
+        // Ajustar a altura da lista de camadas
+        document.addEventListener("DOMContentLoaded", function() {
+            function newLayersListHeight() {
+                var layerScrollbarElement = document.querySelector('.leaflet-control-layers-scrollbar');
+                if (layerScrollbarElement) {
+                    var layersListElement = document.querySelector('.leaflet-control-layers-list');
+                    var originalHeight = layersListElement.style.height 
+                        || window.getComputedStyle(layersListElement).height;
+                    var newHeight = parseFloat(originalHeight) - 50;
+                    layersListElement.style.height = newHeight + 'px';
+                }
+            }
+
+            var isLayersListExpanded = true;
+            var controlLayersElement = document.querySelector('.leaflet-control-layers');
+            var toggleLayerControl = document.querySelector('.leaflet-control-layers-toggle');
+
+            toggleLayerControl.addEventListener('click', function() {
+                controlLayersElement.classList.toggle('leaflet-control-layers-expanded');
+                isLayersListExpanded = !isLayersListExpanded;
+                newLayersListHeight();
+            });
+
+            if (controlLayersElement) {
+                controlLayersElement.addEventListener('click', function(event) {
+                    var toggleLayerHeaderPointer = event.target.closest('.leaflet-layerstree-header-pointer span');
+                    if (toggleLayerHeaderPointer) {
+                        newLayersListHeight();
+                    }
+                });
+            }
+
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+
+            // Colapsar em telas pequenas
+            if (window.innerWidth < 650) {
+                setTimeout(function() {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                    isLayersListExpanded = false;
+                }, 500);
+            }
+        });
+
+        function setBounds() {
+            // Defina os limites do mapa se necessário
+        }
+
         L.ImageOverlay.include({
             getBounds: function () {
                 return this._bounds;
             }
         });
-
-        // Função para adicionar a imagem da legenda
-        function addLegendImage() {
-            var legendImg = document.createElement('img');
-            legendImg.src = 'Legenda.png'; // Substitua 'Legenda.png' pelo caminho da sua imagem
-            legendImg.style.marginTop = '5px'; // Adiciona um espaçamento superior para separar a imagem do texto
-
-            // Localiza o controle de camadas
-            var layerControl = document.querySelector('.leaflet-control-layers-overlays');
-            if (layerControl) {
-                layerControl.appendChild(legendImg);
-            } else {
-                console.error("Elemento de controle de camadas não encontrado.");
-            }
-        }
-        addLegendImage();
-
-        function setBounds() {
-            // Defina os limites do mapa se necessário
-        }
     </script>
 </body>
 </html>
