@@ -89,12 +89,12 @@
                 abstract.show();
                 return this._div;
             };
-            abstract.show = function () {
-                this._div.classList.remove("abstract");
-                this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = 'Fonte: SINAN<br />Para um melhor desempenho, abra a página no Firefox. <br />Dados atualizados em 19/09/2024';
-        };
-        abstract.addTo(map);
+           abstract.show = function () {
+    this._div.classList.remove("abstract");
+    this._div.classList.add("abstractUncollapsed");
+    this._div.innerHTML = '<img src="Legenda.png" alt="Legenda" /><br />Fonte: SINAN<br />Para um melhor desempenho, abra a página no Firefox. <br />Dados atualizados em 19/09/2024';
+};
+		abstract.addTo(map);
         var zoomControl = L.control.zoom({
             position: 'topleft'
         }).addTo(map);
