@@ -165,48 +165,121 @@
         .className += ' fa fa-search';
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
-       var baseMaps = {};
-var overlaysTree = [
-    {label: "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>", layer: layer_OpenStreetMap_0},
-    {label: "Agosto", layer: layer_Agosto_3},
-    {label: "Julho", layer: layer_Julho_2},
-    {label: "Abril", layer: layer_Abril_1},
-];
+      <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa com Camadas</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-layers-tree"></script>
+    <style>
+        #map { height: 500px; }
+        .leaflet-control-layers-list img { max-width: 100%; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([-15.7801, -47.9292], 4); // Ajuste as coordenadas e o nível de zoom conforme necessário
 
-// Adicionando a imagem abaixo de "Abril"
-var legendImageHTML = '<img src="Legenda.png" alt="Legenda" style="width: 100%; margin-top: 10px;" />';
+        // Supondo que você já tenha suas camadas definidas
+        var layer_Agosto_3 = L.tileLayer(/* suas configurações */);
+        var layer_Julho_2 = L.tileLayer(/* suas configurações */);
+        var layer_Abril_1 = L.tileLayer(/* suas configurações */);
+        var layer_OpenStreetMap_0 = L.tileLayer(/* suas configurações */);
 
-// Criação do controle de layers
-var lay = L.control.layers.tree(null, overlaysTree, {
-    collapsed: false, 
-});
+        var baseMaps = {};
+        var overlaysTree = [
+            {label: "<a href='https://www.openstreetmap.org/copyright' target='_blank'>OpenStreetMap</a>", layer: layer_OpenStreetMap_0},
+            {label: "Agosto", layer: layer_Agosto_3},
+            {label: "Julho", layer: layer_Julho_2},
+            {label: "Abril", layer: layer_Abril_1},
+        ];
 
-// Adicionando o controle ao mapa
-lay.addTo(map);
+        // Adicionando a imagem abaixo de "Abril"
+        var legendImageHTML = '<img src="Legenda.png" alt="Legenda" style="width: 100%; margin-top: 10px;" />';
 
-// Modificando o innerHTML do controle para incluir a imagem da legenda
-lay.on('overlayadd', function() {
-    var layersListElement = document.querySelector('.leaflet-control-layers-list');
-    if (layersListElement) {
-        // Adicionando a imagem de legenda abaixo de "Abril"
-        var abrilElement = layersListElement.querySelector('li:contains("Abril")');
-        if (abrilElement) {
-            abrilElement.insertAdjacentHTML('afterend', legendImageHTML);
+        var lay = L.control.layers.tree(null, overlaysTree, {
+            collapsed: false, 
+        });
+
+        lay.addTo(map);
+
+        // Modificando o innerHTML do controle para incluir a imagem da legenda
+        lay.on('overlayadd', function() {
+            var layersListElement = document.querySelector('.leaflet-control-layers-list');
+            if (layersListElement) {
+                // Adicionando a imagem de legenda abaixo de "Abril"
+                var abrilElement = Array.from(layersListElement.querySelectorAll('li')).find(li => li.textContent.includes("Abril"));
+                if (abrilElement) {
+                    abrilElement.insertAdjacentHTML('afterend', legendImageHTML);
+                }
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ajuste na altura da lista de camadas
+            function newLayersListHeight() {
+                var layerScrollbarElement = document.querySelector('.leaflet-control-layers-scrollbar');
+                if (layerScrollbarElement) {
+                    var layersListElement = document.querySelector('.leaflet-control-layers-list');
+                    var originalHeight = layersListElement.style.height || window.getComputedStyle(layersListElement).height;
+                    var newHeight = parseFloat(originalHeight) - 50;
+                    layersListElement.style.height = newHeight + 'px';
+                }
+            }
+
+            var isLayersListExpanded = true;
+            var controlLayersElement = document.querySelector('.leaflet-control-layers');
+            var toggleLayerControl = document.querySelector('.leaflet-control-layers-toggle');
+
+            toggleLayerControl.addEventListener('click', function() {
+                if (isLayersListExpanded) {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                } else {
+                    controlLayersElement.classList.add('leaflet-control-layers-expanded');
+                }
+                isLayersListExpanded = !isLayersListExpanded;
+                newLayersListHeight();
+            });
+
+            if (controlLayersElement) {
+                controlLayersElement.addEventListener('click', function(event) {
+                    var toggleLayerHeaderPointer = event.target.closest('.leaflet-layerstree-header-pointer span');
+                    if (toggleLayerHeaderPointer) {
+                        newLayersListHeight();
+                    }
+                });
+            }
+
+            // Collapsed/Expanded at Start to apply new height
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+            setTimeout(function() {
+                toggleLayerControl.click();
+            }, 10);
+
+            // Collapsed touch/small screen
+            var isSmallScreen = window.innerWidth < 650;
+            if (isSmallScreen) {
+                setTimeout(function() {
+                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
+                    isLayersListExpanded = !isLayersListExpanded;
+                }, 500);
+            }
+        });
+
+        function setBounds() {
+            // Defina os limites do mapa se necessário
         }
-    }
-});
 
-// O resto do seu código permanece inalterado...
-
-document.addEventListener("DOMContentLoaded", function() {
-    // O restante do seu código...
-    // ...
-});
-
-// Definindo os limites
-setBounds();
-L.ImageOverlay.include({
-    getBounds: function () {
-        return this._bounds;
-    }
-});
+        L.ImageOverlay.include({
+            getBounds: function () {
+                return this._bounds;
+            }
+        });
+    </script>
+</body>
+</html>
